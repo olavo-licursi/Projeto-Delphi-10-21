@@ -1,0 +1,52 @@
+unit UnitOrcamentosRecebidos;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.ListView.Types,
+  FMX.ListView.Appearances, FMX.ListView.Adapters.Base, FMX.ListView;
+
+type
+  TFrmOrcamentosRecebidos = class(TForm)
+    Layout1: TLayout;
+    Label1: TLabel;
+    img_voltar: TImage;
+    lv_meus_servicos_produtos: TListView;
+    procedure img_voltarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmOrcamentosRecebidos: TFrmOrcamentosRecebidos;
+
+implementation
+
+{$R *.fmx}
+
+procedure TFrmOrcamentosRecebidos.FormShow(Sender: TObject);
+var
+      foto :TStream;
+      x : integer;
+begin
+      foto := TMemoryStream.Create;
+      FrmPrincipal.img_categoria.Bitmap.SaveToStream(foto);
+      foto.Position := 0;
+
+      for x := 1 to 10 do
+      FrmPrincipal.AddTransacao(lv_meus_servicos_produtos, '0001', 'Compra de App', 'Tecnologia', -45, date, foto);
+
+      foto.DisposeOf;
+end;
+
+procedure TFrmOrcamentosRecebidos.img_voltarClick(Sender: TObject);
+begin
+      close;
+end;
+
+end.

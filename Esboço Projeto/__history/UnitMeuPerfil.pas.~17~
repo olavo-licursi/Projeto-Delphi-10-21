@@ -1,0 +1,68 @@
+unit UnitMeuPerfil;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Edit, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts,FireDAC.Comp.Client, FireDAC.DApt;
+
+type
+  TFrmMeuPerfil = class(TForm)
+    Layout1: TLayout;
+    Label1: TLabel;
+    img_voltar: TImage;
+    Layout2: TLayout;
+    Label2: TLabel;
+    edt_login_email: TEdit;
+    Line1: TLine;
+    Layout3: TLayout;
+    Label3: TLabel;
+    Edit1: TEdit;
+    Line2: TLine;
+    Layout4: TLayout;
+    Label4: TLabel;
+    Edit2: TEdit;
+    Line3: TLine;
+    Layout5: TLayout;
+    Label5: TLabel;
+    Edit3: TEdit;
+    Line4: TLine;
+    Layout8: TLayout;
+    rect_conta_proximo: TRoundRect;
+    Label6: TLabel;
+    Layout6: TLayout;
+    Label7: TLabel;
+    Edit4: TEdit;
+    Line5: TLine;
+    procedure img_voltarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    id_user: integer;
+  end;
+
+var
+  FrmMeuPerfil: TFrmMeuPerfil;
+
+implementation
+
+{$R *.fmx}
+
+uses UnitPrincipal, cUsuario, UnitDM;
+
+
+procedure TFrmMeuPerfil.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      Action := TCloseAction.caFree;
+      FrmMeuPerfil := nil;
+end;
+
+procedure TFrmMeuPerfil.img_voltarClick(Sender: TObject);
+begin
+      close;
+end;
+
+end.

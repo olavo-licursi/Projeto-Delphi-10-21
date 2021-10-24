@@ -1,0 +1,55 @@
+unit UnitComprar;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView;
+
+type
+  TFrmComprar = class(TForm)
+    Layout1: TLayout;
+    Label1: TLabel;
+    img_voltar: TImage;
+    Layout2: TLayout;
+    edt_pesquisar: TEdit;
+    Line1: TLine;
+    Label2: TLabel;
+    Rectangle1: TRectangle;
+    Label3: TLabel;
+    Layout3: TLayout;
+    Rectangle2: TRectangle;
+    Layout6: TLayout;
+    Label4: TLabel;
+    procedure img_voltarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure lv_comprarUpdateObjects(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure Rectangle2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmComprar: TFrmComprar;
+
+implementation
+
+{$R *.fmx}
+
+uses UnitPrincipal, UnitCarrinho;
+
+procedure TFrmComprar.Rectangle2Click(Sender: TObject);
+begin
+      if NOT Assigned(FrmCarrinho) then
+          Application.CreateForm(TFrmCarrinho, FrmCarrinho);
+
+     FrmCarrinho.Show;
+end;
+
+end.

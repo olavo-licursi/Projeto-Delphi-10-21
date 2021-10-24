@@ -1,0 +1,25 @@
+program Project1;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  UnitLogin in 'UnitLogin.pas' {FrmLogin},
+  u99Permissions in 'Units\u99Permissions.pas',
+  UnitPrincipal in 'UnitPrincipal.pas' {FrmPrincipal},
+  UnitTransacoes in 'UnitTransacoes.pas' {FrmTransacoes},
+  UnitCriarVenda in 'UnitCriarVenda.pas' {FrmCriarVendas},
+  UnitComprar in 'UnitComprar.pas' {FrmComprar},
+  UnitMeusServicosProdutos in 'UnitMeusServicosProdutos.pas' {FrmServicosProdutos},
+  UnitOrcamentosRecebidos in 'UnitOrcamentosRecebidos.pas' {FrmOrcamentosRecebidos},
+  UnitEsqueciMinhaSenha in 'UnitEsqueciMinhaSenha.pas' {FrmEsqueciMinhaSenha},
+  UnitAjuda in 'UnitAjuda.pas' {FrmAjuda};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TFrmEsqueciMinhaSenha, FrmEsqueciMinhaSenha);
+  Application.CreateForm(TFrmAjuda, FrmAjuda);
+  Application.Run;
+end.

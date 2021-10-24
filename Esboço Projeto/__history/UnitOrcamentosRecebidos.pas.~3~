@@ -1,0 +1,34 @@
+unit UnitOrcamentosRecebidos;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts;
+
+type
+  TFrmOrcamentosRecebidos = class(TForm)
+    Layout1: TLayout;
+    Label1: TLabel;
+    img_voltar: TImage;
+    procedure img_voltarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmOrcamentosRecebidos: TFrmOrcamentosRecebidos;
+
+implementation
+
+{$R *.fmx}
+
+procedure TFrmOrcamentosRecebidos.img_voltarClick(Sender: TObject);
+begin
+      close;
+end;
+
+end.

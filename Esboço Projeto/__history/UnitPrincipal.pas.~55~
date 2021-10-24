@@ -1,0 +1,238 @@
+unit UnitPrincipal;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, FMX.Layouts,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView, FMX.Ani;
+
+type
+  TFrmPrincipal = class(TForm)
+    Layout1: TLayout;
+    img_menu: TImage;
+    c_perfil: TCircle;
+    Image1: TImage;
+    Label1: TLabel;
+    Layout2: TLayout;
+    Label2: TLabel;
+    Label3: TLabel;
+    Layout3: TLayout;
+    Layout4: TLayout;
+    Image2: TImage;
+    Label4: TLabel;
+    Label5: TLabel;
+    Layout5: TLayout;
+    Layout6: TLayout;
+    Image3: TImage;
+    Label6: TLabel;
+    Label7: TLabel;
+    Rectangle1: TRectangle;
+    Layout7: TLayout;
+    Label8: TLabel;
+    lbl_todos_trans: TLabel;
+    lv_transacao: TListView;
+    img_categoria: TImage;
+    StyleBook1: TStyleBook;
+    rect_menu: TRectangle;
+    layout_principal: TLayout;
+    AnimationMenu: TFloatAnimation;
+    img_fechar_menu: TImage;
+    rect_comprar: TRectangle;
+    Label10: TLabel;
+    rect_vender: TRectangle;
+    Label9: TLabel;
+    rect_servicos_produtos: TRectangle;
+    Label11: TLabel;
+    rect_orcamentos_recebidos: TRectangle;
+    Label12: TLabel;
+    rect_carrinho: TRectangle;
+    Label13: TLabel;
+    procedure FormShow(Sender: TObject);
+    procedure lv_transacaoUpdateObjects(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure lbl_todos_transClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure img_menuClick(Sender: TObject);
+    procedure AnimationMenuFinish(Sender: TObject);
+    procedure AnimationMenuProcess(Sender: TObject);
+    procedure img_fechar_menuClick(Sender: TObject);
+    procedure rect_venderClick(Sender: TObject);
+    procedure rect_comprarClick(Sender: TObject);
+    procedure rect_servicos_produtosClick(Sender: TObject);
+    procedure rect_orcamentos_recebidosClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure AddTransacao(listview: TListView;id_transacao, descricao, categoria: string;
+      valor: double; dt: TDateTime; foto: TStream);
+    procedure SetupTransacao(lv: TListView;Item: TListViewItem);
+    procedure EditarVenda(id_venda: string);
+  end;
+
+var
+  FrmPrincipal: TFrmPrincipal;
+
+implementation
+
+{$R *.fmx}
+
+uses UnitTransacoes, UnitCriarVenda, UnitComprar, UnitMeusServicosProdutos,
+  UnitOrcamentosRecebidos;
+
+//*************** UNIT GLOBAIS ****************
+
+procedure TFrmPrincipal.AddTransacao(
+listview: TListView;
+id_transacao, descricao, categoria: string;
+valor: double;
+dt: TDateTime;
+foto: TStream);
+
+var
+      txt : TListItemText;
+      img : TListItemImage;
+      bmp : TBitMap;
+begin
+      with listview.Items.Add do
+      begin
+            txt := TListItemText(Objects.FindDrawable('TxtDescricao'));
+            txt.Text := descricao;
+
+            TListItemText(Objects.FindDrawable('TxtCategoria')).Text := categoria;
+            TListItemText(Objects.FindDrawable('TxtValor')).Text := FormatFloat('#,##0.00', valor);
+            TListItemText(Objects.FindDrawable('TxtData')).Text := FormatDateTime('dd/mm', dt);
+
+            // Icone...
+            img := TListItemImage(Objects.FindDrawable('ImgIcone'));
+            if foto <> nil then
+            begin
+              bmp :=  TBitmap.Create;
+              bmp.LoadFromStream(foto);
+
+              img.OwnsBitmap := true;
+              img.Bitmap := bmp;
+            end;
+      end;
+end;
+
+procedure TFrmPrincipal.SetupTransacao(lv: TListView; Item: TListViewItem);
+var
+      txt : TListItemText;
+begin
+      txt := TListItemText(Item.Objects.FindDrawable('TxtDescricao'));
+      txt.Width := lv.Width - txt.PlaceOffset.X - 100;
+end;
+
+// ************************************************************************
+
+procedure TFrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      if Assigned(FrmTransacoes) then
+      begin
+            FrmTransacoes.DisposeOf;
+            FrmTransacoes := nil;
+      end;
+end;
+
+procedure TFrmPrincipal.FormCreate(Sender: TObject);
+begin
+      rect_menu.Margins.Left := -260;
+      rect_menu.Align := TAlignLayout.Left;
+      rect_menu.Visible := true;
+end;
+
+procedure TFrmPrincipal.FormShow(Sender: TObject);
+var
+      foto :TStream;
+      x : integer;
+begin
+      foto := TMemoryStream.Create;
+      img_categoria.Bitmap.SaveToStream(foto);
+      foto.Position := 0;
+
+      for x := 1 to 10 do
+      AddTransacao(FrmPrincipal.lv_transacao, '0001', 'Compra de App', 'Tecnologia', -45, date, foto);
+
+      foto.DisposeOf;
+end;
+
+procedure TFrmPrincipal.img_fechar_menuClick(Sender: TObject);
+begin
+      AnimationMenu.Start;
+end;
+
+procedure TFrmPrincipal.img_menuClick(Sender: TObject);
+begin
+      AnimationMenu.Start;
+end;
+
+
+procedure TFrmPrincipal.lbl_todos_transClick(Sender: TObject);
+begin
+      if NOT Assigned(FrmTransacoes) then
+            Application.CreateForm(TFrmTransacoes, FrmTransacoes);
+
+      FrmTransacoes.Show;
+end;
+
+procedure TFrmPrincipal.lv_transacaoUpdateObjects(const Sender: TObject;
+  const AItem: TListViewItem);
+begin
+  SetupTransacao(FrmPrincipal.lv_transacao,AItem);
+end;
+
+procedure TFrmPrincipal.rect_comprarClick(Sender: TObject);
+begin
+      if NOT Assigned(FrmComprar) then
+          Application.CreateForm(TFrmComprar, FrmComprar);
+
+     FrmComprar.Show;
+end;
+
+procedure TFrmPrincipal.rect_orcamentos_recebidosClick(Sender: TObject);
+begin
+      if NOT Assigned(FrmOrcamentosRecebidos) then
+          Application.CreateForm(TFrmOrcamentosRecebidos, FrmOrcamentosRecebidos);
+
+     FrmOrcamentosRecebidos.Show;
+end;
+
+procedure TFrmPrincipal.rect_servicos_produtosClick(Sender: TObject);
+begin
+      if NOT Assigned(FrmServicosProdutos) then
+          Application.CreateForm(TFrmServicosProdutos, FrmServicosProdutos);
+
+     FrmServicosProdutos.Show;
+end;
+
+procedure TFrmPrincipal.rect_venderClick(Sender: TObject);
+begin
+      EditarVenda('');
+end;
+
+procedure TFrmPrincipal.AnimationMenuFinish(Sender: TObject);
+begin
+      layout_principal.Enabled := AnimationMenu.Inverse;
+      AnimationMenu.Inverse := NOT AnimationMenu.Inverse;
+end;
+
+procedure TFrmPrincipal.AnimationMenuProcess(Sender: TObject);
+begin
+      layout_principal.Margins.Right := -260 -rect_menu.Margins.Left;
+end;
+
+procedure TFrmPrincipal.EditarVenda(id_venda: string);
+begin
+     if NOT Assigned(FrmCriarVendas) then
+          Application.CreateForm(TFrmCriarVendas, FrmCriarVendas);
+
+     FrmCriarVendas.Show;
+
+end;
+
+end.
