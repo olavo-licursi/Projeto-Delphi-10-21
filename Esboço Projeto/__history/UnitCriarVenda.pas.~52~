@@ -25,7 +25,7 @@ type
     Label4: TLabel;
     Layout5: TLayout;
     Label5: TLabel;
-    edt_valor: TEdit;
+    Edit3: TEdit;
     Line4: TLine;
     rect_imagem_venda: TRectangle;
     lbl_imagem: TLabel;
@@ -39,7 +39,7 @@ type
     lbl_quantidade: TLabel;
     Layout7: TLayout;
     Label6: TLabel;
-    edt_descricao: TEdit;
+    Edit1: TEdit;
     Line2: TLine;
     procedure img_voltarClick(Sender: TObject);
     procedure rect_imagem_vendaClick(Sender: TObject);
@@ -64,7 +64,7 @@ implementation
 
 {$R *.fmx}
 
-uses UnitPrincipal, UnitDM, cProdutoServico ;
+uses UnitPrincipal, UnitDM, cProduto;
 
 procedure TFrmCriarVendas.ActLibraryDidFinishTaking(Image: TBitmap);
 begin
@@ -107,20 +107,20 @@ end;
 
 procedure TFrmCriarVendas.img_saveClick(Sender: TObject);
 var
-      perfil : TProdutoServico;
+      perfil : TProduto;
       erro : string;
 begin
-      perfil := TProdutoServico.Create(dm.conn);
+      perfil := TUsuario.Create(dm.conn);
 
-      perfil.TITULO := edt_titulo.Text;
-      perfil.DESCRICAO := edt_descricao.Text;
-      perfil.VALOR := StrToFloat(edt_valor.Text);
-      perfil.QUANTIDADE := StrToInt(nb_quantidade.Text);
-      perfil.CATEGORIA := cb_categoria.Items[cb_categoria.ItemIndex];
-      perfil.IMAGEM := rect_imagem_venda.Fill.Bitmap.Bitmap;
+      perfil.ID_USUARIO := id_user;
+      perfil.NOME := edt_nome.Text;
+      perfil.CNPJ := StrToFloat(edt_cnpj.Text);
+      perfil.EMPRESA := edt_empresa.Text;
+      perfil.TELEFONE := StrToFloat(edt_telefone.Text);
+      perfil.ENDERECO := edt_endereco.Text;
 
 
-      perfil.Inserir(erro);
+      perfil.Alterar(erro);
 
       if erro <> '' then
       begin

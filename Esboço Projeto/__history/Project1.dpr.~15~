@@ -18,8 +18,7 @@ uses
   UnitDM in 'UnitDM.pas' {dm: TDataModule},
   UnitNotificacao in 'UnitNotificacao.pas' {FrmNotificacao},
   UnitProduto in 'UnitProduto.pas' {FrmProduto},
-  cUsuario in 'Classes\cUsuario.pas',
-  cProdutoServico in 'Classes\cProdutoServico.pas';
+  cUsuario in 'Classes\cUsuario.pas';
 
 {$R *.res}
 

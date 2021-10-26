@@ -19,7 +19,7 @@ uses
   UnitNotificacao in 'UnitNotificacao.pas' {FrmNotificacao},
   UnitProduto in 'UnitProduto.pas' {FrmProduto},
   cUsuario in 'Classes\cUsuario.pas',
-  cProdutoServico in 'Classes\cProdutoServico.pas';
+  cProduto in 'Classes\cProduto.pas';
 
 {$R *.res}
 

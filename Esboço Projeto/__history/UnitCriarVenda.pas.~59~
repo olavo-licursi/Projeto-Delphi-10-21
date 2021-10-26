@@ -120,7 +120,7 @@ begin
       perfil.IMAGEM := rect_imagem_venda.Fill.Bitmap.Bitmap;
 
 
-      perfil.Inserir(erro);
+      perfil.Alterar(erro);
 
       if erro <> '' then
       begin

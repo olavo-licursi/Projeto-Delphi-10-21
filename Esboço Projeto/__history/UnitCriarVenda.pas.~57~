@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, u99Permissions,
-  System.Actions, FMX.ActnList, FMX.StdActns, FMX.MediaLibrary.Actions;
+  System.Actions, FMX.ActnList, FMX.StdActns, FMX.MediaLibrary.Actions,
+  FMX.ListBox, FMX.EditBox, FMX.NumberBox, FireDAC.Comp.Client, FireDAC.DApt;
 
 type
   TFrmCriarVendas = class(TForm)
@@ -16,27 +17,38 @@ type
     img_save: TImage;
     Layout2: TLayout;
     Label2: TLabel;
-    edt_login_email: TEdit;
+    edt_titulo: TEdit;
     Line1: TLine;
     Layout3: TLayout;
     Label3: TLabel;
     Layout4: TLayout;
     Label4: TLabel;
-    Edit2: TEdit;
-    Line3: TLine;
     Layout5: TLayout;
     Label5: TLabel;
     Edit3: TEdit;
     Line4: TLine;
     rect_imagem_venda: TRectangle;
-    Label6: TLabel;
+    lbl_imagem: TLabel;
     ActionList1: TActionList;
     ActLibrary: TTakePhotoFromLibraryAction;
+    Rectangle1: TRectangle;
+    Layout6: TLayout;
+    Image1: TImage;
+    cb_categoria: TComboBox;
+    nb_quantidade: TNumberBox;
+    lbl_quantidade: TLabel;
+    Layout7: TLayout;
+    Label6: TLabel;
+    Edit1: TEdit;
+    Line2: TLine;
     procedure img_voltarClick(Sender: TObject);
     procedure rect_imagem_vendaClick(Sender: TObject);
     procedure ActLibraryDidFinishTaking(Image: TBitmap);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure cb_categoriaChange(Sender: TObject);
+    procedure img_saveClick(Sender: TObject);
   private
     { Private declarations }
     permissao : T99Permissions;
@@ -52,11 +64,35 @@ implementation
 
 {$R *.fmx}
 
-uses UnitPrincipal;
+uses UnitPrincipal, UnitDM, cProdutoServico ;
 
 procedure TFrmCriarVendas.ActLibraryDidFinishTaking(Image: TBitmap);
 begin
       rect_imagem_venda.Fill.Bitmap.Bitmap := Image;
+      lbl_imagem.Text := '';
+end;
+
+procedure TFrmCriarVendas.cb_categoriaChange(Sender: TObject);
+var
+      item: String;
+begin
+      item := cb_categoria.Items[cb_categoria.ItemIndex];
+      if item = 'Produto' then
+      begin
+            lbl_quantidade.Visible := True;
+            nb_quantidade.Visible := True;
+      end
+      else if item = 'Serviço' then
+      begin
+            lbl_quantidade.Visible := False;
+            nb_quantidade.Visible := False;
+      end;
+end;
+
+procedure TFrmCriarVendas.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      Action := TCloseAction.caFree;
+      FrmCriarVendas := nil;
 end;
 
 procedure TFrmCriarVendas.FormCreate(Sender: TObject);

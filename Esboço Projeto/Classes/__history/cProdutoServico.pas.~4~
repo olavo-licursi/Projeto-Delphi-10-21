@@ -1,0 +1,65 @@
+unit cProdutoServico;
+
+interface
+
+uses FireDAC.Comp.Client, FireDAC.DApt, System.SysUtils, FMX.Graphics;
+
+type
+    TProdutoServico = class
+private
+    FTITULO: string;
+    FID_PRODUTO: Integer;
+    FVALOR: double;
+    FDESCRICAO: string;
+    FCATEGORIA: string;
+    FIMAGEM: TBitmap;
+    FQUANTIDADE: Integer;
+
+
+public
+    constructor Create(conn: TFDConnection);
+      property ID_PRODUTO: Integer read FID_PRODUTO write FID_PRODUTO;
+      property TITULO: string read FTITULO write FTITULO;
+      property DESCRICAO: string read FDESCRICAO write FDESCRICAO;
+      property VALOR: double read FVALOR write FVALOR;
+      property IMAGEM: TBitmap read FIMAGEM write FIMAGEM;
+      property QUANTIDADE: Integer read FQUANTIDADE write FQUANTIDADE;
+      property CATEGORIA: string read FCATEGORIA write FCATEGORIA;
+
+      function ListarProdutoServico(out erro: string): TFDQuery;
+      function Inserir(out erro: string): Boolean;
+      function Alterar(out erro: string): Boolean;
+      function Excluir(out erro: string): Boolean;
+
+end;
+
+implementation
+
+{ TProdutoServico }
+
+function TProduto.Alterar(out erro: string): Boolean;
+begin
+
+end;
+
+constructor TProduto.Create(conn: TFDConnection);
+begin
+
+end;
+
+function TProduto.Excluir(out erro: string): Boolean;
+begin
+
+end;
+
+function TProduto.Inserir(out erro: string): Boolean;
+begin
+
+end;
+
+function TProduto.ListarProdutoServico(out erro: string): TFDQuery;
+begin
+
+end;
+
+end.

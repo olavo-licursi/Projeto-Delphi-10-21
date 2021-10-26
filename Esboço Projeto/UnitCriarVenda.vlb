@@ -4,9 +4,6 @@ Coordinates=10,280,80,36
 [ActionList1]
 Coordinates=318,133,78,36
 
-[Edit3]
-Coordinates=420,166,44,58
-
 [rect_imagem_venda]
 Coordinates=528,234,131,36
 
@@ -79,4 +76,7 @@ Coordinates=66,234,46,36
 
 [edt_titulo]
 Coordinates=163,166,105,58
+
+[edt_valor]
+Coordinates=420,166,44,58
 
