@@ -64,7 +64,7 @@ implementation
 
 {$R *.fmx}
 
-uses UnitPrincipal, UnitDM, cProdutoServico ;
+uses UnitPrincipal, UnitDM, cProdutoServico , UnitMeusServicosProdutos;
 
 procedure TFrmCriarVendas.ActLibraryDidFinishTaking(Image: TBitmap);
 begin
@@ -128,7 +128,9 @@ begin
         exit;
       end;
 
-      ShowMessage('Dados Salvos!');
+      FrmMeusServicosProdutos.ListarProdutos;
+
+      ShowMessage('Venda Criada!');
       close;
 
 end;

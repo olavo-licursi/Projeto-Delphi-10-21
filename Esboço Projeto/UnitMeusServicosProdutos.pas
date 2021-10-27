@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.ListView;
+  FMX.ListView,FireDAC.Comp.Client, FireDAC.DApt, Data.DB;
 
 type
   TFrmMeusServicosProdutos = class(TForm)
@@ -30,9 +30,14 @@ type
       const AItem: TListViewItem);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
+     procedure AddProduto(listview: TListView; id_produto, titulo,
+      categoria: string; valor: double; imagem: TStream);
+
     { Private declarations }
   public
     { Public declarations }
+
+      procedure ListarProdutos;
   end;
 
 var
@@ -42,7 +47,7 @@ implementation
 
 {$R *.fmx}
 
-uses UnitPrincipal, UnitCriarVenda;
+uses UnitPrincipal, UnitCriarVenda, cProdutoServico, UnitDM;
 
 
 procedure TFrmMeusServicosProdutos.FormClose(Sender: TObject;
@@ -52,19 +57,79 @@ begin
       FrmMeusServicosProdutos := nil;
 end;
 
-procedure TFrmMeusServicosProdutos.FormShow(Sender: TObject);
+procedure TFrmMeusServicosProdutos.AddProduto(
+listview: TListView;
+id_produto, titulo, categoria: string;
+valor: double;
+imagem: TStream);
+
 var
-      foto :TStream;
-      x : integer;
+      txt : TListItemText;
+      img : TListItemImage;
+      bmp : TBitMap;
 begin
-      foto := TMemoryStream.Create;
-      FrmPrincipal.img_categoria.Bitmap.SaveToStream(foto);
-      foto.Position := 0;
+      with listview.Items.Add do
+      begin
+            txt := TListItemText(Objects.FindDrawable('TxtTitulo'));
+            txt.Text := titulo;
 
-      for x := 1 to 10 do
-      FrmPrincipal.AddTransacao(lv_meus_servicos_produtos, '0001', 'Vendo App', 'Tecnologia', 4500, date, foto);
+            TListItemText(Objects.FindDrawable('TxtCategoria')).Text := categoria;
+            TListItemText(Objects.FindDrawable('TxtValor')).Text := FormatFloat('#,##0.00', valor);
 
-      foto.DisposeOf;
+            // Icone...
+            img := TListItemImage(Objects.FindDrawable('ImgIcone'));
+            if imagem <> nil then
+            begin
+              bmp :=  TBitmap.Create;
+              bmp.LoadFromStream(imagem);
+
+              img.OwnsBitmap := true;
+              img.Bitmap := bmp;
+            end;
+      end;
+end;
+
+procedure TFrmMeusServicosProdutos.ListarProdutos;
+var
+      prod : TProdutoServico;
+      qry : TFDQuery;
+      erro : string;
+      imagem : TStream;
+begin
+      try
+            prod := TProdutoServico.Create(dm.conn);
+            qry := prod.ListarProdutoServico(erro);
+
+            while NOT qry.Eof do
+            begin
+                  //Icone
+                  if qry.FieldByName('IMAGEM').AsString <> '' then
+                        imagem := qry.CreateBlobStream(qry.FieldByName('IMAGEM'), TBlobStreamMode.bmRead)
+                  else
+                        imagem := nil;
+
+                  AddProduto(lv_meus_servicos_produtos,
+                             qry.FieldByName('ID_PRODUTO').AsString,
+                             qry.FieldByName('TITULO').AsString,
+                             qry.FieldByName('CATEGORIA').AsString,
+                             qry.FieldByName('VALOR').AsFloat,
+                             imagem);
+
+                  if imagem <> nil then
+                        imagem.DisposeOf;
+
+                  qry.Next;
+            end;
+      finally
+            qry.DisposeOf;
+            prod.DisposeOf;
+      end;
+
+end;
+
+procedure TFrmMeusServicosProdutos.FormShow(Sender: TObject);
+begin
+      ListarProdutos;
 end;
 
 procedure TFrmMeusServicosProdutos.img_voltarClick(Sender: TObject);
