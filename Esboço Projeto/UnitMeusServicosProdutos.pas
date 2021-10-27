@@ -140,7 +140,7 @@ end;
 procedure TFrmMeusServicosProdutos.lv_meus_servicos_produtosItemClick(
   const Sender: TObject; const AItem: TListViewItem);
 begin
-      FrmPrincipal.EditarVenda('');
+      FrmPrincipal.Vender(1);
 end;
 
 procedure TFrmMeusServicosProdutos.lv_meus_servicos_produtosUpdateObjects(

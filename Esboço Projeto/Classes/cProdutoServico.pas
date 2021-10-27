@@ -15,6 +15,7 @@ private
       FCATEGORIA: string;
       FIMAGEM: TBitmap;
       FQUANTIDADE: Integer;
+      FID_USUARIO: Integer;
 
 public
     constructor Create(conn: TFDConnection);
@@ -25,6 +26,7 @@ public
       property IMAGEM: TBitmap read FIMAGEM write FIMAGEM;
       property QUANTIDADE: Integer read FQUANTIDADE write FQUANTIDADE;
       property CATEGORIA: string read FCATEGORIA write FCATEGORIA;
+      property ID_USUARIO: Integer read FID_USUARIO write FID_USUARIO;
 
       function ListarProdutoServico(out erro: string): TFDQuery;
       function Inserir(out erro: string): Boolean;
@@ -106,7 +108,8 @@ begin
               Active := false;
               sql.Clear;
               sql.Add('UPDATE TAB_PRODUTO SET TITULO=:TITULO, DESCRICAO=:DESCRICAO, VALOR=:VALOR, IMAGEM=:IMAGEM, ');
-              sql.Add('QUANTIDADE=:QUANTIDADE, CATEGORIA=:CATEGORIA');
+              sql.Add('QUANTIDADE=:QUANTIDADE, CATEGORIA=:CATEGORIA,');
+              sql.Add('ID_USUARIO=:ID_USUARIO');
               sql.Add('WHERE ID_PRODUTO=:ID_PRODUTO');
               ParamByName('TITULO').Value := TITULO;
               ParamByName('DESCRICAO').Value := DESCRICAO;
@@ -114,6 +117,7 @@ begin
               ParamByName('IMAGEM').Assign(IMAGEM);
               ParamByName('QUANTIDADE').Value := QUANTIDADE;
               ParamByName('CATEGORIA').Value := CATEGORIA;
+              ParamByName('ID_USUARIO').Value := ID_USUARIO;
               ParamByName('ID_PRODUTO').Value := ID_PRODUTO;
               ExecSQL;
             end;
@@ -154,14 +158,15 @@ begin
             begin
               Active := false;
               sql.Clear;
-              sql.Add('INSERT INTO TAB_PRODUTO(TITULO,DESCRICAO,VALOR,IMAGEM,QUANTIDADE,CATEGORIA)');
-              sql.Add('VALUES(:TITULO,:DESCRICAO,:VALOR,:IMAGEM,:QUANTIDADE,:CATEGORIA)');
+              sql.Add('INSERT INTO TAB_PRODUTO(TITULO,DESCRICAO,VALOR,IMAGEM,QUANTIDADE,CATEGORIA,ID_USUARIO)');
+              sql.Add('VALUES(:TITULO,:DESCRICAO,:VALOR,:IMAGEM,:QUANTIDADE,:CATEGORIA,:ID_USUARIO)');
               ParamByName('TITULO').Value := TITULO;
               ParamByName('DESCRICAO').Value := DESCRICAO;
               ParamByName('VALOR').Value := DESCRICAO;
               ParamByName('IMAGEM').Value := DESCRICAO;
               ParamByName('QUANTIDADE').Value := DESCRICAO;
               ParamByName('CATEGORIA').Value := DESCRICAO;
+              ParamByName('ID_USUARIO').Value := ID_USUARIO;
               ExecSQL;
             end;
 

@@ -93,15 +93,16 @@ type
   private
     procedure MeuPerfil(id_user: integer);
 
+
     { Private declarations }
   public
     { Public declarations }
     procedure AddTransacao(listview: TListView;id_transacao, descricao, categoria: string;
       valor: double; dt: TDateTime; foto: TStream);
     procedure SetupTransacao(lv: TListView;Item: TListViewItem);
-    procedure EditarVenda(id_venda: string);
     procedure SetupLimitadorDescricao(lv: TListView; Item: TListViewItem; item1,
       item2: string);
+    procedure Vender(id_user: integer);
   end;
 
 var
@@ -338,7 +339,7 @@ end;
 
 procedure TFrmPrincipal.rect_venderClick(Sender: TObject);
 begin
-      EditarVenda('');
+      Vender(1);
 end;
 
 procedure TFrmPrincipal.AnimationListViewFinish(Sender: TObject);
@@ -373,13 +374,14 @@ begin
       AnimationPerfil.Start;
 end;
 
-procedure TFrmPrincipal.EditarVenda(id_venda: string);
+procedure TFrmPrincipal.Vender(id_user: integer);
 begin
-     if NOT Assigned(FrmCriarVendas) then
+      if NOT Assigned(FrmCriarVendas) then
           Application.CreateForm(TFrmCriarVendas, FrmCriarVendas);
 
-     FrmCriarVendas.Show;
+     FrmCriarVendas.id_user := id_user;
 
+     FrmCriarVendas.Show;
 end;
 
 end.

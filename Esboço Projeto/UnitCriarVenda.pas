@@ -55,6 +55,7 @@ type
     procedure TrataErroPermissao(Sender: TObject);
   public
     { Public declarations }
+    id_user: integer;
   end;
 
 var
@@ -64,7 +65,7 @@ implementation
 
 {$R *.fmx}
 
-uses UnitPrincipal, UnitDM, cProdutoServico , UnitMeusServicosProdutos;
+uses UnitPrincipal, UnitDM, cProdutoServico;
 
 procedure TFrmCriarVendas.ActLibraryDidFinishTaking(Image: TBitmap);
 begin
@@ -109,15 +110,19 @@ procedure TFrmCriarVendas.img_saveClick(Sender: TObject);
 var
       perfil : TProdutoServico;
       erro : string;
+      item : string;
 begin
       perfil := TProdutoServico.Create(dm.conn);
+
+      item := cb_categoria.Items[cb_categoria.ItemIndex];
 
       perfil.TITULO := edt_titulo.Text;
       perfil.DESCRICAO := edt_descricao.Text;
       perfil.VALOR := StrToFloat(edt_valor.Text);
       perfil.QUANTIDADE := StrToInt(nb_quantidade.Text);
-      perfil.CATEGORIA := cb_categoria.Items[cb_categoria.ItemIndex];
+      perfil.CATEGORIA := item;
       perfil.IMAGEM := rect_imagem_venda.Fill.Bitmap.Bitmap;
+      perfil.ID_USUARIO := id_user;
 
 
       perfil.Inserir(erro);
@@ -127,8 +132,6 @@ begin
         ShowMessage(erro);
         exit;
       end;
-
-      FrmMeusServicosProdutos.ListarProdutos;
 
       ShowMessage('Venda Criada!');
       close;
