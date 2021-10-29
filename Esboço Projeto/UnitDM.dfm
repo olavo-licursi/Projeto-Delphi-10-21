@@ -7,6 +7,7 @@ object dm: Tdm
     Params.Strings = (
       'Database=D:\Projetos\Esbo'#231'o Projeto\DB\banco_permuta.db'
       'LockingMode=Normal'
+      'OpenMode=ReadWrite'
       'DriverID=SQLite')
     Left = 48
     Top = 40

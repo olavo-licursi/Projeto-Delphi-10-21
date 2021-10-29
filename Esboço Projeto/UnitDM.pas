@@ -35,10 +35,10 @@ begin
     begin
         {$IFDEF MSWINDOWS}
         try
-            Params.Values['Database'] := System.SysUtils.GetCurrentDir + '\DB\banco_permuta.db';
+            Params.Values['Database'] := 'D:\Projetos\Esboço Projeto\DB\banco_permuta.db';
             Connected := true;
         except on E:Exception do
-                raise Exception.Create('Erro de conexão com o banco de dados: ' + E.Message);
+                raise Exception.Create('Erro de conexão com o banco de dados no Windows: ' + E.Message);
         end;
 
         {$ELSE}

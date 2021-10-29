@@ -162,10 +162,10 @@ begin
               sql.Add('VALUES(:TITULO,:DESCRICAO,:VALOR,:IMAGEM,:QUANTIDADE,:CATEGORIA,:ID_USUARIO)');
               ParamByName('TITULO').Value := TITULO;
               ParamByName('DESCRICAO').Value := DESCRICAO;
-              ParamByName('VALOR').Value := DESCRICAO;
-              ParamByName('IMAGEM').Value := DESCRICAO;
-              ParamByName('QUANTIDADE').Value := DESCRICAO;
-              ParamByName('CATEGORIA').Value := DESCRICAO;
+              ParamByName('VALOR').Value := VALOR;
+              ParamByName('IMAGEM').Assign(IMAGEM);
+              ParamByName('QUANTIDADE').Value := QUANTIDADE;
+              ParamByName('CATEGORIA').Value := CATEGORIA;
               ParamByName('ID_USUARIO').Value := ID_USUARIO;
               ExecSQL;
             end;
