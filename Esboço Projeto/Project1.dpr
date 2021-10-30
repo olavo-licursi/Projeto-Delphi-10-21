@@ -1,6 +1,19 @@
 program Project1;
 
 uses
+  {$IFDEF EurekaLog}
+  EMemLeaks,
+  EResLeaks,
+  EDebugExports,
+  EDebugJCL,
+  EFixSafeCallException,
+  EMapWin32,
+  EAppFMX,
+  EDialogWinAPIMSClassic,
+  EDialogWinAPIEurekaLogDetailed,
+  EDialogWinAPIStepsToReproduce,
+  ExceptionLog7,
+  {$ENDIF EurekaLog}
   System.StartUpCopy,
   FMX.Forms,
   UnitLogin in 'UnitLogin.pas' {FrmLogin},
@@ -29,3 +42,4 @@ begin
   Application.CreateForm(TFrmLogin, FrmLogin);
   Application.Run;
 end.
+

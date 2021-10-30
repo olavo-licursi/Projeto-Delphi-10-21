@@ -141,13 +141,13 @@ end;
 procedure TFrmMeusServicosProdutos.lv_meus_servicos_produtosItemClick(
   const Sender: TObject; const AItem: TListViewItem);
 begin
-      //FrmPrincipal.Vender(1);
+      FrmPrincipal.Vender(1);
 end;
 
 procedure TFrmMeusServicosProdutos.lv_meus_servicos_produtosUpdateObjects(
   const Sender: TObject; const AItem: TListViewItem);
 begin
-      FrmPrincipal.SetupTransacao(lv_meus_servicos_produtos ,AItem);
+      //FrmPrincipal.SetupTransacao(lv_meus_servicos_produtos ,AItem);
 end;
 
 end.

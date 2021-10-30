@@ -2,57 +2,57 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2021/09/30 22:00:20.000.079,=C:\Users\licur\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2021/09/30 22:02:19.000.278,C:\Users\licur\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Projetos\Esboço Projeto\UnitLogin.pas</Transaction>
-    <Transaction>2021/09/30 22:02:19.000.278,C:\Users\licur\Documents\Embarcadero\Studio\Projects\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitLogin.fmx</Transaction>
-    <Transaction>2021/09/30 22:02:39.000.988,C:\Users\licur\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Projetos\Esboço Projeto\Project1.dproj</Transaction>
+    <Transaction>2021/09/30 22:02:19.000.278,D:\Projetos\Esboço Projeto\UnitLogin.pas=C:\Users\licur\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/09/30 22:02:19.000.278,D:\Projetos\Esboço Projeto\UnitLogin.fmx=C:\Users\licur\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2021/09/30 22:02:39.000.988,D:\Projetos\Esboço Projeto\Project1.dproj=C:\Users\licur\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2021/10/01 09:39:20.000.867,=D:\Projetos\Esboço Projeto\Units\u99Permissions.pas</Transaction>
     <Transaction>2021/10/01 11:50:37.000.723,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/01 11:56:46.000.912,D:\Projetos\Esboço Projeto\UnitPrincipal.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
-    <Transaction>2021/10/01 11:56:46.000.911,D:\Projetos\Esboço Projeto\UnitPrincipal.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/01 11:56:46.000.911,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitPrincipal.pas</Transaction>
+    <Transaction>2021/10/01 11:56:46.000.912,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitPrincipal.fmx</Transaction>
     <Transaction>2021/10/03 10:06:05.000.165,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/03 10:06:23.000.233,D:\Projetos\Esboço Projeto\UnitTransacoes.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
-    <Transaction>2021/10/03 10:06:23.000.233,D:\Projetos\Esboço Projeto\UnitTransacoes.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/03 10:06:23.000.233,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitTransacoes.pas</Transaction>
+    <Transaction>2021/10/03 10:06:23.000.233,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitTransacoes.fmx</Transaction>
     <Transaction>2021/10/04 12:14:20.000.491,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/04 12:14:46.000.023,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitCriarVenda.pas</Transaction>
-    <Transaction>2021/10/04 12:14:46.000.023,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitCriarVenda.fmx</Transaction>
+    <Transaction>2021/10/04 12:14:46.000.023,D:\Projetos\Esboço Projeto\UnitCriarVenda.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/04 12:14:46.000.023,D:\Projetos\Esboço Projeto\UnitCriarVenda.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
     <Transaction>2021/10/04 17:44:36.000.118,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/04 17:44:59.000.982,D:\Projetos\Esboço Projeto\UnitComprar.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
-    <Transaction>2021/10/04 17:44:59.000.982,D:\Projetos\Esboço Projeto\UnitComprar.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/04 17:44:59.000.982,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitComprar.fmx</Transaction>
+    <Transaction>2021/10/04 17:44:59.000.982,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitComprar.pas</Transaction>
     <Transaction>2021/10/04 18:21:21.000.612,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/04 18:22:33.000.922,D:\Projetos\Esboço Projeto\UnitMeusServicosProdutos.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
-    <Transaction>2021/10/04 18:22:33.000.922,D:\Projetos\Esboço Projeto\UnitMeusServicosProdutos.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/04 18:22:33.000.922,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitMeusServicosProdutos.pas</Transaction>
+    <Transaction>2021/10/04 18:22:33.000.922,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitMeusServicosProdutos.fmx</Transaction>
     <Transaction>2021/10/04 19:09:10.000.577,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/04 19:09:27.000.505,D:\Projetos\Esboço Projeto\UnitOrcamentosRecebidos.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/04 19:09:27.000.505,D:\Projetos\Esboço Projeto\UnitOrcamentosRecebidos.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
+    <Transaction>2021/10/04 19:09:27.000.505,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitOrcamentosRecebidos.pas</Transaction>
+    <Transaction>2021/10/04 19:09:27.000.505,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitOrcamentosRecebidos.fmx</Transaction>
     <Transaction>2021/10/06 18:08:59.000.145,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/06 18:09:24.000.909,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitEsqueciMinhaSenha.fmx</Transaction>
-    <Transaction>2021/10/06 18:09:24.000.909,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitEsqueciMinhaSenha.pas</Transaction>
+    <Transaction>2021/10/06 18:09:24.000.909,D:\Projetos\Esboço Projeto\UnitEsqueciMinhaSenha.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
+    <Transaction>2021/10/06 18:09:24.000.909,D:\Projetos\Esboço Projeto\UnitEsqueciMinhaSenha.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
     <Transaction>2021/10/08 18:33:04.000.591,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/08 18:33:19.000.985,D:\Projetos\Esboço Projeto\UnitAjuda.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/08 18:33:19.000.985,D:\Projetos\Esboço Projeto\UnitAjuda.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
+    <Transaction>2021/10/08 18:33:19.000.985,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitAjuda.fmx</Transaction>
+    <Transaction>2021/10/08 18:33:19.000.985,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitAjuda.pas</Transaction>
     <Transaction>2021/10/14 02:54:17.000.081,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/14 02:54:37.000.694,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitMeuPerfil.fmx</Transaction>
-    <Transaction>2021/10/14 02:54:37.000.694,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitMeuPerfil.pas</Transaction>
+    <Transaction>2021/10/14 02:54:37.000.694,D:\Projetos\Esboço Projeto\UnitMeuPerfil.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/14 02:54:37.000.694,D:\Projetos\Esboço Projeto\UnitMeuPerfil.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
     <Transaction>2021/10/14 05:27:12.000.032,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/14 05:27:53.000.761,D:\Projetos\Esboço Projeto\UnitFavoritos.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
-    <Transaction>2021/10/14 05:27:53.000.761,D:\Projetos\Esboço Projeto\UnitFavoritos.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/14 05:27:53.000.761,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitFavoritos.pas</Transaction>
+    <Transaction>2021/10/14 05:27:53.000.761,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitFavoritos.fmx</Transaction>
     <Transaction>2021/10/16 04:11:24.000.513,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/16 04:11:43.000.661,D:\Projetos\Esboço Projeto\Unit1.dfm=D:\Projetos\Esboço Projeto\UnitDM.dfm</Transaction>
-    <Transaction>2021/10/16 04:11:43.000.661,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitDM.pas</Transaction>
+    <Transaction>2021/10/16 04:11:43.000.661,D:\Projetos\Esboço Projeto\UnitDM.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/16 04:11:43.000.661,D:\Projetos\Esboço Projeto\UnitDM.dfm=D:\Projetos\Esboço Projeto\Unit1.dfm</Transaction>
     <Transaction>2021/10/18 04:57:01.000.750,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/18 04:58:36.000.356,D:\Projetos\Esboço Projeto\UnitNotificacao.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/18 04:58:36.000.356,D:\Projetos\Esboço Projeto\UnitNotificacao.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
+    <Transaction>2021/10/18 04:58:36.000.356,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitNotificacao.fmx</Transaction>
+    <Transaction>2021/10/18 04:58:36.000.356,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitNotificacao.pas</Transaction>
     <Transaction>2021/10/18 06:44:45.000.069,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/18 06:47:38.000.321,D:\Projetos\Esboço Projeto\UnitProduto.fmx=D:\Projetos\Esboço Projeto\Unit1.fmx</Transaction>
-    <Transaction>2021/10/18 06:47:38.000.321,D:\Projetos\Esboço Projeto\UnitProduto.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/18 06:47:38.000.321,D:\Projetos\Esboço Projeto\Unit1.fmx=D:\Projetos\Esboço Projeto\UnitProduto.fmx</Transaction>
+    <Transaction>2021/10/18 06:47:38.000.321,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\UnitProduto.pas</Transaction>
     <Transaction>2021/10/21 09:57:55.000.051,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/21 10:10:13.000.921,D:\Projetos\Esboço Projeto\Classes\cUsuario.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/21 10:10:13.000.921,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\Classes\cUsuario.pas</Transaction>
     <Transaction>2021/10/25 11:42:58.000.560,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/25 15:34:42.000.369,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\Classes\cProduto.pas</Transaction>
+    <Transaction>2021/10/25 15:34:42.000.369,D:\Projetos\Esboço Projeto\Classes\cProduto.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
     <Transaction>2021/10/25 17:19:41.000.964,=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
-    <Transaction>2021/10/25 17:25:38.000.251,D:\Projetos\Esboço Projeto\Classes\cProdutoServico.pas=D:\Projetos\Esboço Projeto\Unit1.pas</Transaction>
+    <Transaction>2021/10/25 17:25:38.000.251,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\Classes\cProdutoServico.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
-		<NoProfile iOSSimulator="iPhone5" Android64="ozcy5plrro9ljr8l" Android=""/>
+		<NoProfile iOSSimulator="iPhone5" Android64="ozcy5plrro9ljr8l" Android="ozcy5plrro9ljr8l"/>
 	</ActiveMobileDevice>
 </BorlandProject>

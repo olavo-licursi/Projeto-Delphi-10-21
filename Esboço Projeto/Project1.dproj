@@ -5,7 +5,7 @@
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Android64</Platform>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>33819</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>Project1.dpr</MainSource>
@@ -103,6 +103,9 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
         <SanitizedProjectName>Project1</SanitizedProjectName>
+        <DCC_Define>EUREKALOG_VER7;$(DCC_Define)</DCC_Define>
+        <DCC_MapFile>3</DCC_MapFile>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;IndyIPServer;IndySystem;tethering;fmxFireDAC;FireDAC;bindcompfmx;FireDACSqliteDriver;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;xmlrtl;soapmidas;rtl;DbxClientDriver;CustomIPTransport;dbexpress;IndyCore;bindcomp;dsnap;FireDACCommon;IndyIPClient;RESTBackendComponents;soapserver;dbxcds;bindengine;CloudService;dsnapxml;dbrtl;IndyProtocols;FireDACCommonDriver;inet;$(DCC_UsePackage)</DCC_UsePackage>
@@ -153,6 +156,7 @@
         <EL_SecureFileSharing>true</EL_SecureFileSharing>
         <VerInfo_Build>1</VerInfo_Build>
         <Android_NotificationAccentColor>#000000</Android_NotificationAccentColor>
+        <Debugger_RunParams>-cleaninstall</Debugger_RunParams>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_iOSDevice64)'!=''">
         <DCC_UsePackage>DBXSqliteDriver;IndyIPCommon;RESTComponents;bindcompdbx;DBXInterBaseDriver;IndyIPServer;IndySystem;tethering;fmxFireDAC;FireDAC;bindcompfmx;FireDACSqliteDriver;soaprtl;DbxCommonDriver;fmx;FireDACIBDriver;xmlrtl;soapmidas;rtl;DbxClientDriver;CustomIPTransport;dbexpress;IndyCore;bindcomp;dsnap;FireDACCommon;IndyIPClient;RESTBackendComponents;soapserver;dbxcds;bindengine;CloudService;dsnapxml;dbrtl;IndyProtocols;FireDACCommonDriver;inet;fmxase;$(DCC_UsePackage)</DCC_UsePackage>
@@ -273,61 +277,47 @@
         </DelphiCompile>
         <DCCReference Include="UnitLogin.pas">
             <Form>FrmLogin</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Units\u99Permissions.pas"/>
         <DCCReference Include="UnitPrincipal.pas">
             <Form>FrmPrincipal</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitTransacoes.pas">
             <Form>FrmTransacoes</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitCriarVenda.pas">
             <Form>FrmCriarVendas</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitComprar.pas">
             <Form>FrmComprar</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitMeusServicosProdutos.pas">
             <Form>FrmMeusServicosProdutos</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitOrcamentosRecebidos.pas">
             <Form>FrmOrcamentosRecebidos</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitEsqueciMinhaSenha.pas">
             <Form>FrmEsqueciMinhaSenha</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitAjuda.pas">
             <Form>FrmAjuda</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitMeuPerfil.pas">
             <Form>FrmMeuPerfil</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitFavoritos.pas">
             <Form>FrmFavoritos</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitDM.pas">
             <Form>dm</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="UnitNotificacao.pas">
             <Form>FrmNotificacao</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="UnitProduto.pas">
             <Form>FrmProduto</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Classes\cUsuario.pas"/>
         <DCCReference Include="Classes\cProdutoServico.pas"/>
@@ -468,12 +458,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Android64\Debug\colors.xml" Configuration="Debug" Class="Android_Colors">
+                <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_NotificationIcon_24x24.png" Configuration="Debug" Class="Android_NotificationIcon24">
                     <Platform Name="Android64">
+                        <RemoteName>ic_notification.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Android64\Debug\styles.xml" Configuration="Debug" Class="AndroidSplashStyles">
+                <DeployFile LocalName="Android64\Debug\AndroidManifest.xml" Configuration="Debug" Class="ProjectAndroidManifest">
                     <Platform Name="Android64">
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -485,9 +476,8 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_NotificationIcon_24x24.png" Configuration="Debug" Class="Android_NotificationIcon24">
+                <DeployFile LocalName="Android64\Debug\colors.xml" Configuration="Debug" Class="Android_Colors">
                     <Platform Name="Android64">
-                        <RemoteName>ic_notification.png</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -497,7 +487,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Android64\Debug\AndroidManifest.xml" Configuration="Debug" Class="ProjectAndroidManifest">
+                <DeployFile LocalName="Android64\Debug\styles.xml" Configuration="Debug" Class="AndroidSplashStyles">
                     <Platform Name="Android64">
                         <Overwrite>true</Overwrite>
                     </Platform>
