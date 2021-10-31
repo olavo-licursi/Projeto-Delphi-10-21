@@ -99,7 +99,12 @@ begin
                   if qry.FieldByName('IMAGEM').AsString <> '' then
                         imagem := qry.CreateBlobStream(qry.FieldByName('IMAGEM'), TBlobStreamMode.bmRead)
                   else
-                        imagem := nil;
+                  begin
+                        imagem := TMemoryStream.Create;
+                        FrmPrincipal.img_categoria.Bitmap.SaveToStream(imagem);
+                        imagem.Position := 0;
+                  end;
+
 
                   AddProduto(lv_meus_servicos_produtos,
                              qry.FieldByName('ID_PRODUTO').AsInteger,

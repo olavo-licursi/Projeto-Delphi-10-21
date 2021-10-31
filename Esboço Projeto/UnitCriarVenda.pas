@@ -121,7 +121,14 @@ begin
       perfil.VALOR := StrToFloat(edt_valor.Text);
       perfil.QUANTIDADE := StrToInt(nb_quantidade.Text);
       perfil.CATEGORIA := item;
-      perfil.IMAGEM := rect_imagem_venda.Fill.Bitmap.Bitmap;
+      if perfil.IMAGEM <> nil then
+      begin
+            perfil.IMAGEM := rect_imagem_venda.Fill.Bitmap.Bitmap;
+      end
+      else
+      begin
+            perfil.IMAGEM := FrmPrincipal.img_categoria.Bitmap;
+      end;
       perfil.ID_USUARIO := id_user;
 
 

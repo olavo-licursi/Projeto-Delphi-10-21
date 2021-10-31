@@ -28,16 +28,16 @@ type
     procedure lv_meus_servicos_produtosItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
      procedure AddProduto(listview: TListView; id_produto: integer; titulo,
       categoria: string; valor: double; imagem: TStream);
-
+      procedure ListarProdutos;
     { Private declarations }
   public
     { Public declarations }
 
-      procedure ListarProdutos;
+
   end;
 
 var
@@ -48,19 +48,6 @@ implementation
 {$R *.fmx}
 
 uses UnitPrincipal, UnitCriarVenda, cProdutoServico, UnitDM;
-
-
-procedure TFrmMeusServicosProdutos.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-      Action := TCloseAction.caFree;
-      FrmMeusServicosProdutos := nil;
-end;
-
-procedure TFrmMeusServicosProdutos.FormCreate(Sender: TObject);
-begin
-      ListarProdutos;
-end;
 
 procedure TFrmMeusServicosProdutos.AddProduto(
 listview: TListView;
@@ -112,7 +99,12 @@ begin
                   if qry.FieldByName('IMAGEM').AsString <> '' then
                         imagem := qry.CreateBlobStream(qry.FieldByName('IMAGEM'), TBlobStreamMode.bmRead)
                   else
-                        imagem := nil;
+                  begin
+                        imagem := TMemoryStream.Create;
+                        FrmPrincipal.img_categoria.Bitmap.SaveToStream(imagem);
+                        imagem.Position := 0;
+                  end;
+
 
                   AddProduto(lv_meus_servicos_produtos,
                              qry.FieldByName('ID_PRODUTO').AsInteger,
@@ -121,9 +113,8 @@ begin
                              qry.FieldByName('VALOR').AsFloat,
                              imagem);
 
-                  if imagem <> nil then
-                        imagem.DisposeOf;
 
+                  imagem.DisposeOf;
                   qry.Next;
             end;
       finally
@@ -131,6 +122,19 @@ begin
             prod.DisposeOf;
       end;
 
+end;
+
+
+procedure TFrmMeusServicosProdutos.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+      Action := TCloseAction.caFree;
+      FrmMeusServicosProdutos := nil;
+end;
+
+procedure TFrmMeusServicosProdutos.FormShow(Sender: TObject);
+begin
+      ListarProdutos;
 end;
 
 procedure TFrmMeusServicosProdutos.img_voltarClick(Sender: TObject);
@@ -141,13 +145,13 @@ end;
 procedure TFrmMeusServicosProdutos.lv_meus_servicos_produtosItemClick(
   const Sender: TObject; const AItem: TListViewItem);
 begin
-      //FrmPrincipal.Vender(1);
+      FrmPrincipal.Vender(1);
 end;
 
 procedure TFrmMeusServicosProdutos.lv_meus_servicos_produtosUpdateObjects(
   const Sender: TObject; const AItem: TListViewItem);
 begin
-      FrmPrincipal.SetupTransacao(lv_meus_servicos_produtos ,AItem);
+      //FrmPrincipal.SetupTransacao(lv_meus_servicos_produtos ,AItem);
 end;
 
 end.

@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Layouts, FMX.Edit, u99Permissions,
   System.Actions, FMX.ActnList, FMX.StdActns, FMX.MediaLibrary.Actions,
-  FMX.ListBox, FMX.EditBox, FMX.NumberBox;
+  FMX.ListBox, FMX.EditBox, FMX.NumberBox, FireDAC.Comp.Client, FireDAC.DApt;
 
 type
   TFrmCriarVendas = class(TForm)
@@ -17,16 +17,15 @@ type
     img_save: TImage;
     Layout2: TLayout;
     Label2: TLabel;
-    edt_login_email: TEdit;
+    edt_titulo: TEdit;
     Line1: TLine;
     Layout3: TLayout;
     Label3: TLabel;
     Layout4: TLayout;
     Label4: TLabel;
-    Line3: TLine;
     Layout5: TLayout;
     Label5: TLabel;
-    Edit3: TEdit;
+    edt_valor: TEdit;
     Line4: TLine;
     rect_imagem_venda: TRectangle;
     lbl_imagem: TLabel;
@@ -38,6 +37,10 @@ type
     cb_categoria: TComboBox;
     nb_quantidade: TNumberBox;
     lbl_quantidade: TLabel;
+    Layout7: TLayout;
+    Label6: TLabel;
+    edt_descricao: TEdit;
+    Line2: TLine;
     procedure img_voltarClick(Sender: TObject);
     procedure rect_imagem_vendaClick(Sender: TObject);
     procedure ActLibraryDidFinishTaking(Image: TBitmap);
@@ -45,12 +48,14 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure cb_categoriaChange(Sender: TObject);
+    procedure img_saveClick(Sender: TObject);
   private
     { Private declarations }
     permissao : T99Permissions;
     procedure TrataErroPermissao(Sender: TObject);
   public
     { Public declarations }
+    id_user: integer;
   end;
 
 var
@@ -60,7 +65,7 @@ implementation
 
 {$R *.fmx}
 
-uses UnitPrincipal;
+uses UnitPrincipal, UnitDM, cProdutoServico;
 
 procedure TFrmCriarVendas.ActLibraryDidFinishTaking(Image: TBitmap);
 begin
@@ -73,12 +78,12 @@ var
       item: String;
 begin
       item := cb_categoria.Items[cb_categoria.ItemIndex];
-      if cb_categoria.Items.QualifiedClassName = 'Produto' then
+      if item = 'Produto' then
       begin
             lbl_quantidade.Visible := True;
             nb_quantidade.Visible := True;
       end
-      else if cb_categoria.Items.QualifiedClassName = 'Serviço' then
+      else if item = 'Serviço' then
       begin
             lbl_quantidade.Visible := False;
             nb_quantidade.Visible := False;
@@ -99,6 +104,45 @@ end;
 procedure TFrmCriarVendas.FormDestroy(Sender: TObject);
 begin
       permissao.DisposeOf;
+end;
+
+procedure TFrmCriarVendas.img_saveClick(Sender: TObject);
+var
+      perfil : TProdutoServico;
+      erro : string;
+      item : string;
+begin
+      perfil := TProdutoServico.Create(dm.conn);
+
+      item := cb_categoria.Items[cb_categoria.ItemIndex];
+
+      perfil.TITULO := edt_titulo.Text;
+      perfil.DESCRICAO := edt_descricao.Text;
+      perfil.VALOR := StrToFloat(edt_valor.Text);
+      perfil.QUANTIDADE := StrToInt(nb_quantidade.Text);
+      perfil.CATEGORIA := item;
+      if perfil.IMAGEM <> nil then
+      begin
+            perfil.IMAGEM := rect_imagem_venda.Fill.Bitmap.Bitmap;
+      end
+      else
+      begin
+            perfil.IMAGEM := nil;
+      end;
+      perfil.ID_USUARIO := id_user;
+
+
+      perfil.Inserir(erro);
+
+      if erro <> '' then
+      begin
+        ShowMessage(erro);
+        exit;
+      end;
+
+      ShowMessage('Venda Criada!');
+      close;
+
 end;
 
 procedure TFrmCriarVendas.img_voltarClick(Sender: TObject);

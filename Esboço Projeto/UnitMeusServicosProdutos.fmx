@@ -3,7 +3,7 @@ object FrmMeusServicosProdutos: TFrmMeusServicosProdutos
   Top = 0
   Caption = 'Form1'
   ClientHeight = 586
-  ClientWidth = 371
+  ClientWidth = 373
   Fill.Kind = Solid
   StyleBook = FrmPrincipal.StyleBook1
   FormFactor.Width = 320
@@ -14,14 +14,14 @@ object FrmMeusServicosProdutos: TFrmMeusServicosProdutos
   DesignerMasterStyle = 0
   object Layout1: TLayout
     Align = Top
-    Size.Width = 371.000000000000000000
+    Size.Width = 373.000000000000000000
     Size.Height = 57.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object Label1: TLabel
       Align = Contents
       StyledSettings = [Family]
-      Size.Width = 371.000000000000000000
+      Size.Width = 373.000000000000000000
       Size.Height = 57.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Size = 16.000000000000000000
@@ -79,7 +79,7 @@ object FrmMeusServicosProdutos: TFrmMeusServicosProdutos
     Align = Top
     Margins.Top = 10.000000000000000000
     Position.Y = 67.000000000000000000
-    Size.Width = 371.000000000000000000
+    Size.Width = 373.000000000000000000
     Size.Height = 70.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
@@ -105,7 +105,7 @@ object FrmMeusServicosProdutos: TFrmMeusServicosProdutos
       Margins.Right = 130.000000000000000000
       Position.X = 20.000000000000000000
       Position.Y = 69.000000000000000000
-      Size.Width = 221.000000000000000000
+      Size.Width = 223.000000000000000000
       Size.Height = 1.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFD4D4D4
@@ -116,7 +116,7 @@ object FrmMeusServicosProdutos: TFrmMeusServicosProdutos
       Margins.Left = 20.000000000000000000
       Margins.Right = 20.000000000000000000
       Position.X = 20.000000000000000000
-      Size.Width = 331.000000000000000000
+      Size.Width = 333.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Size = 16.000000000000000000
@@ -128,7 +128,7 @@ object FrmMeusServicosProdutos: TFrmMeusServicosProdutos
     object Layout3: TLayout
       Align = Right
       Margins.Right = 20.000000000000000000
-      Position.X = 254.000000000000000000
+      Position.X = 256.000000000000000000
       Position.Y = 25.000000000000000000
       Size.Width = 97.000000000000000000
       Size.Height = 44.000000000000000000
@@ -167,7 +167,7 @@ object FrmMeusServicosProdutos: TFrmMeusServicosProdutos
     ItemSpaces.Right = 0.000000000000000000
     Align = Client
     Margins.Top = 20.000000000000000000
-    Size.Width = 371.000000000000000000
+    Size.Width = 373.000000000000000000
     Size.Height = 429.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1

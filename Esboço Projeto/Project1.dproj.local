@@ -53,6 +53,6 @@
     <Transaction>2021/10/25 17:25:38.000.251,D:\Projetos\Esboço Projeto\Unit1.pas=D:\Projetos\Esboço Projeto\Classes\cProdutoServico.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
-		<NoProfile iOSSimulator="iPhone5" Android64="ozcy5plrro9ljr8l" Android="ozcy5plrro9ljr8l"/>
+		<NoProfile iOSSimulator="iPhone5" Android64="" Android=""/>
 	</ActiveMobileDevice>
 </BorlandProject>
