@@ -29,7 +29,7 @@ type
     Image3: TImage;
     Label6: TLabel;
     Label7: TLabel;
-    Rectangle1: TRectangle;
+    rect_transacoes: TRectangle;
     layout_listview: TLayout;
     Label8: TLabel;
     lbl_todos_trans: TLabel;
@@ -242,8 +242,7 @@ begin
 
             //Esconde receitas e despesas
             layout_lancamentos.Visible := False;
-
-            AnimationListView.Start;
+            rect_transacoes.Visible := False;
       end
       else if lbl_saldo.Visible = false then
       begin
@@ -254,7 +253,7 @@ begin
 
             //Revela receitas e despesas
             layout_lancamentos.Visible := True;
-            AnimationListView.Start;
+            rect_transacoes.Visible := True;
       end;
 
 
