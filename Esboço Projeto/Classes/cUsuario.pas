@@ -19,6 +19,7 @@ private
       FTELEFONE: double;
 
 
+
 public
       constructor Create(conn: TFDConnection);
       property ID_USUARIO: Integer read FID_USUARIO write FID_USUARIO;
@@ -35,6 +36,7 @@ public
       function Inserir(out erro: string): Boolean;
       function Alterar(out erro: string): Boolean;
       function Excluir(out erro: string): Boolean;
+      function ListarEmpresa(out erro: string): TFDQuery;
 end;
 
 implementation

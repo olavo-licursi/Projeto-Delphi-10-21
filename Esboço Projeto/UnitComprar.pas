@@ -26,16 +26,14 @@ type
     Label4: TLabel;
     lv_comprar: TListView;
     procedure Rectangle2Click(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure lv_comprarUpdateObjects(const Sender: TObject;
       const AItem: TListViewItem);
     procedure img_voltarClick(Sender: TObject);
     procedure lv_comprarItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
-    procedure ListViewComprar(listview: TListView; id_comprar, titulo,
-      categoria, empresa: string; valor: double; foto: TStream);
     procedure AddProduto(listview: TListView; id_produto: integer; titulo,
       categoria, empresa: string; valor: double; imagem: TStream);
     procedure ListarProdutos;
@@ -67,7 +65,7 @@ var
 begin
       with listview.Items.Add do
       begin
-            TListItemText(Objects.FindDrawable('TxtTitulo')).Text := categoria;
+            TListItemText(Objects.FindDrawable('TxtTitulo')).Text := titulo;
             TListItemText(Objects.FindDrawable('TxtCategoria')).Text := categoria;
             TListItemText(Objects.FindDrawable('TxtEmpresa')).Text := empresa;
             TListItemText(Objects.FindDrawable('TxtValor')).Text := FormatFloat('#,##0.00', valor);
@@ -106,7 +104,8 @@ begin
             begin
                   //Icone
                   if qryProd.FieldByName('IMAGEM').AsString <> '' then
-                        imagem := qryProd.CreateBlobStream(qryProd.FieldByName('IMAGEM'), TBlobStreamMode.bmRead)
+                        imagem := qryProd.CreateBlobStream(qryProd.FieldByName('IMAGEM'),
+                        TBlobStreamMode.bmRead)
                   else
                   begin
                         imagem := TMemoryStream.Create;
@@ -143,19 +142,8 @@ begin
 end;
 
 procedure TFrmComprar.FormShow(Sender: TObject);
-var
-      foto :TStream;
-      x : integer;
 begin
-      foto := TMemoryStream.Create;
-      FrmPrincipal.img_categoria.Bitmap.SaveToStream(foto);
-      foto.Position := 0;
-
-      for x := 1 to 10 do
-      FrmComprar.ListViewComprar(lv_comprar, '0001', 'Vendo App', 'Tecnologia', 'Zézinho Ltda',
-      4500, foto);
-
-      foto.DisposeOf;
+      ListarProdutos;
 end;
 
 procedure TFrmComprar.img_voltarClick(Sender: TObject);
