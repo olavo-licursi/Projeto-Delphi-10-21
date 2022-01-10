@@ -26,7 +26,7 @@ object FrmAjuda: TFrmAjuda
       TextSettings.Font.StyleExt = {00060000000000000004000000}
       TextSettings.FontColor = xFF818181
       TextSettings.HorzAlign = Center
-      Text = 'Recupera'#231#227'o de Senha'
+      Text = 'Ajuda'
       TabOrder = 3
     end
     object img_voltar: TImage

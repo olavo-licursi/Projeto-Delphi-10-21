@@ -36,7 +36,6 @@ public
       function Inserir(out erro: string): Boolean;
       function Alterar(out erro: string): Boolean;
       function Excluir(out erro: string): Boolean;
-      function ListarEmpresa(out erro: string): TFDQuery;
 end;
 
 implementation

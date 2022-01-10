@@ -35,7 +35,7 @@ type
     procedure FormShow(Sender: TObject);
   private
     procedure AddProduto(listview: TListView; id_produto: integer; titulo,
-      categoria, empresa: string; valor: double; imagem: TStream);
+      categoria: string; valor: double; imagem: TStream);
     procedure ListarProdutos;
     { Private declarations }
   public
@@ -55,7 +55,7 @@ uses UnitPrincipal, UnitCarrinho, UnitProduto, cUsuario, cProdutoServico,
 procedure TFrmComprar.AddProduto(
 listview: TListView;
 id_produto: integer;
-titulo, categoria, empresa: string;
+titulo, categoria: string;
 valor: double;
 imagem: TStream);
 
@@ -67,7 +67,6 @@ begin
       begin
             TListItemText(Objects.FindDrawable('TxtTitulo')).Text := titulo;
             TListItemText(Objects.FindDrawable('TxtCategoria')).Text := categoria;
-            TListItemText(Objects.FindDrawable('TxtEmpresa')).Text := empresa;
             TListItemText(Objects.FindDrawable('TxtValor')).Text := FormatFloat('#,##0.00', valor);
 
             // Icone...
@@ -118,7 +117,6 @@ begin
                              qryProd.FieldByName('ID_PRODUTO').AsInteger,
                              qryProd.FieldByName('TITULO').AsString,
                              qryProd.FieldByName('CATEGORIA').AsString,
-                             qryUsuario.FieldByName('EMPRESA').AsString,
                              qryProd.FieldByName('VALOR').AsFloat,
                              imagem);
 

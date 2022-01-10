@@ -245,17 +245,6 @@ object FrmComprar: TFrmComprar
         Appearance.Align = Trailing
         Appearance.PlaceOffset.X = -15.000000000000000000
         Appearance.PlaceOffset.Y = 10.000000000000000000
-      end
-      item
-        AppearanceObjectName = 'TxtEmpresa'
-        AppearanceClassName = 'TTextObjectAppearance'
-        Appearance.TextAlign = Trailing
-        Appearance.Width = 120.000000000000000000
-        Appearance.Height = 20.000000000000000000
-        Appearance.Align = Trailing
-        Appearance.PlaceOffset.X = -15.000000000000000000
-        Appearance.PlaceOffset.Y = 34.000000000000000000
-        Appearance.Opacity = 0.699999988079071000
       end>
     ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
       item
